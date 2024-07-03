@@ -9,7 +9,9 @@ import { useEffect } from "react";
 import "@ui5/webcomponents-react/dist/Assets";
 import "@ui5/webcomponents-icons/dist/home.js";
 import "@ui5/webcomponents-icons/dist/settings";
-import "@ui5/webcomponents-icons/dist/source-code";
+import "@ui5/webcomponents-icons/dist/database";
+import "@ui5/webcomponents-icons/dist/upload-to-cloud";
+import "@ui5/webcomponents-icons/dist/tree";
 import "@ui5/webcomponents-icons/dist/palette";
 import "@ui5/webcomponents-icons/dist/ai";
 import { useNavigate } from "react-router-dom";
@@ -35,12 +37,12 @@ function Home() {
               endContent={<Button icon="settings" title="Go to Settings" />}
               startContent={<Button icon="home" title="Go Home" />}
             >
-              <Label>ABAP-GPT</Label>
+              <Label>MHP-Decision-Framework</Label>
             </Bar>
           }
           hideFooter
           style={{
-            height: "500px",
+            height: "100vh",
           }}
         >
           <div
@@ -48,20 +50,23 @@ function Home() {
               padding: "30px",
             }}
           >
-            <Title>Wilkommen bei ABAP-GPT!</Title>
+            <Title>Welcome to the MHP-Decision-Framework</Title>
             <p>
-              Dem interaktiven Co-Piloten zu Erstellung von modernen
-              SAP-Anwendungen
+              The interactive Decision Framework helps you to create awsesome
+              decsiontrees based advanced machine learning algorithms.
             </p>
-            <Title level="H3">Verfügbare Tools:</Title>
+            <Title level="H3">Creator Tools:</Title>
 
             <Card
               header={
                 <CardHeader
                   interactive={true}
-                  avatar={<Icon name="source-code" />}
-                  subtitleText="CDS-Views generieren"
-                  titleText="CDS-View"
+                  avatar={<Icon name="database" />}
+                  subtitleText="Create or manage data models"
+                  titleText="Data modeler"
+                  onClick={() => {
+                    navigate("datamodels");
+                  }}
                 />
               }
               style={{
@@ -75,9 +80,9 @@ function Home() {
               header={
                 <CardHeader
                   interactive={true}
-                  avatar={<Icon name="palette" />}
-                  titleText="Metadaten Generator"
-                  subtitleText="Generiere Metadtaen für dein CDS-View"
+                  avatar={<Icon name="tree" />}
+                  titleText="Decison tree generator"
+                  subtitleText="Generate and manage decision trees based on data models"
                   onClick={() => {
                     navigate("metadata");
                   }}
@@ -94,9 +99,9 @@ function Home() {
               header={
                 <CardHeader
                   interactive={true}
-                  avatar={<Icon name="source-code" />}
-                  titleText="RAP Projekt"
-                  subtitleText="Vollständiges RAP-Projekt erstellen"
+                  avatar={<Icon name="upload-to-cloud" />}
+                  titleText="Deploy to customer"
+                  subtitleText="Manage and deploy decision trees to customers"
                   onClick={{}}
                 />
               }
@@ -112,8 +117,33 @@ function Home() {
                 <CardHeader
                   interactive={true}
                   avatar={<Icon name="ai" />}
-                  titleText="Ask me"
-                  subtitleText="AI basierter Co-Pilot"
+                  titleText="Documentation editor"
+                  subtitleText="Create and manage awsome documentations"
+                  onClick={() => {
+                    navigate("editor");
+                  }}
+                />
+              }
+              style={{
+                width: "300px",
+
+                padding: "10px",
+              }}
+            ></Card>
+            <Title style={{ paddingTop: 10 }} level="H3">
+              My decision trees:
+            </Title>
+
+            <Card
+              header={
+                <CardHeader
+                  interactive={true}
+                  avatar={<Icon name="palette" />}
+                  titleText="My Decision Trees"
+                  subtitleText="Manage and deploy decision trees to customers"
+                  onClick={() => {
+                    navigate("metadata");
+                  }}
                 />
               }
               style={{
